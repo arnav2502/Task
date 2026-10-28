@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  /* Dark theme (default). Values are space-separated RGB for Tailwind's alpha syntax. */
+  --tp-white: 255 255 255;
+  --tp-ink-950: 7 9 15;
+  --tp-ink-900: 11 15 23;
+  --tp-ink-850: 15 20 32;
+  --tp-ink-800: 18 24 38;
+  --tp-ink-750: 22 29 45;
+  --tp-ink-700: 28 36 54;
+  --tp-ink-600: 39 48 71;
+  --tp-ink-500: 58 69 96;
+  /* Text scale (dark mode): brighter than stock slate so secondary text stays readable on dark surfaces. */
+  --tp-slate-100: 248 250 252;
+  --tp-slate-200: 241 245 249;
+  --tp-slate-300: 226 232 240;
+  --tp-slate-400: 203 213 225;
+  --tp-slate-500: 165 178 196;
+  --tp-slate-600: 130 145 166;
+  --tp-shadow-card: 0 1px 0 0 rgba(255, 255, 255, 0.03) inset, 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+  --tp-option-bg: #121826;
+  /* accents: Tailwind 100 / 200 / 300 */
+  --tp-rose-100: 255 228 230; --tp-rose-200: 254 205 211; --tp-rose-300: 253 164 175;
+  --tp-indigo-100: 224 231 255; --tp-indigo-200: 199 210 254; --tp-indigo-300: 165 180 252;
+  --tp-emerald-100: 209 250 229; --tp-emerald-200: 167 243 208; --tp-emerald-300: 110 231 183;
+  --tp-amber-100: 254 243 199; --tp-amber-200: 253 230 138; --tp-amber-300: 252 211 77;
+  --tp-sky-100: 224 242 254; --tp-sky-200: 186 230 253; --tp-sky-300: 125 211 252;
+  --tp-violet-100: 237 233 254; --tp-violet-200: 221 214 254; --tp-violet-300: 196 181 253;
+  --tp-cyan-100: 207 250 254; --tp-cyan-200: 165 243 252; --tp-cyan-300: 103 232 249;
+  --tp-teal-100: 204 251 241; --tp-teal-200: 153 246 228; --tp-teal-300: 94 234 212;
+}
+
+/* Light theme: surfaces become light, foreground ("white") becomes slate-900, the slate text scale
+   is inverted and pale accent text is darkened for contrast. */
+html.light {
+  color-scheme: light;
+  --tp-white: 2 6 23;
+  --tp-ink-950: 226 232 240;
+  --tp-ink-900: 244 246 250;
+  --tp-ink-850: 255 255 255;
+  --tp-ink-800: 255 255 255;
+  --tp-ink-750: 248 250 252;
+  --tp-ink-700: 241 245 249;
+  --tp-ink-600: 226 232 240;
+  --tp-ink-500: 203 213 225;
+  /* Text scale for light mode: kept dark for strong contrast on white (all ≥ 7:1 except 600). */
+  --tp-slate-100: 2 6 23;
+  --tp-slate-200: 2 6 23;
+  --tp-slate-300: 15 23 42;
+  --tp-slate-400: 30 41 59;
+  --tp-slate-500: 51 65 85;
+  --tp-slate-600: 71 85 105;
+  --tp-shadow-card: 0 1px 2px 0 rgba(15, 23, 42, 0.05), 0 8px 24px -14px rgba(15, 23, 42, 0.18);
+  --tp-option-bg: #ffffff;
+  --tp-rose-100: 136 19 55; --tp-rose-200: 159 18 57; --tp-rose-300: 190 18 60;
+  --tp-indigo-100: 49 46 129; --tp-indigo-200: 55 48 163; --tp-indigo-300: 67 56 202;
+  --tp-emerald-100: 6 78 59; --tp-emerald-200: 6 95 70; --tp-emerald-300: 4 120 87;
+  --tp-amber-100: 120 53 15; --tp-amber-200: 146 64 14; --tp-amber-300: 180 83 9;
+  --tp-sky-100: 12 74 110; --tp-sky-200: 7 89 133; --tp-sky-300: 3 105 161;
+  --tp-violet-100: 76 29 149; --tp-violet-200: 91 33 182; --tp-violet-300: 109 40 217;
+  --tp-cyan-100: 22 78 99; --tp-cyan-200: 21 94 117; --tp-cyan-300: 14 116 144;
+  --tp-teal-100: 19 78 74; --tp-teal-200: 17 94 89; --tp-teal-300: 15 118 110;
+}
+
+html,
+body {
+  @apply bg-ink-900 font-sans text-slate-200 antialiased;
+  font-weight: 500;
+  font-feature-settings: 'cv11', 'ss01';
+}
+
+::selection {
+  background: rgba(99, 102, 241, 0.35);
+}
+
+/* Thin, dark scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.25) transparent;
+}
+
+input[type='date']::-webkit-calendar-picker-indicator,
+input[type='time']::-webkit-calendar-picker-indicator {
+  filter: invert(0.7);
+}
+
+select option {
+  background-color: var(--tp-option-bg);
+}
+
+html.light input[type='date']::-webkit-calendar-picker-indicator,
+html.light input[type='time']::-webkit-calendar-picker-indicator {
+  filter: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

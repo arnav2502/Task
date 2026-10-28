@@ -1,0 +1,13 @@
+node_modules/
+dist/
+release/
+data/*
+!data/.gitkeep
+logs/*
+!logs/.gitkeep
+test-results/
+playwright-report/
+.env
+*.log
+*.sqlite*
+.DS_Store

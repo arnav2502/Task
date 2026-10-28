@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "TaskPilot",
+  "short_name": "TaskPilot",
+  "version": "0.2.0",
+  "description": "Personal automation hub: control your local TaskPilot service — platforms, accounts, tasks, schedules and live run history.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtsb/6nQKfSkeTOLWBMU4hlZgKYjxQaLohm5h1oIFBFdFBifwUahJrp2Iila9vtk7qHpWGA0aE9m1Ztcw3sbebfC+Cg1XRGaCqiJp4vqddvpSnrPpvXsccX4nBOycyeuzBnbcyc7kcWPSExTuxo3DPksgS/CdG/EMGDewzPBMlXp0QwIb6ACfzwieQNg9utdKkl17EzDcmWmRBWYbvCoXdJSB8cnrfbX8uzYiW6PWbkh0ky7KMmzQ989pIMxbuxEdRr5bUIl9KV9e8PEnyB0WxHRJmbfpBPJ6hYbGzUElqqIX65Y1KY7waMtbJSh+Zb4gkTWLi5I/k6v0ktGGEXeQVwIDAQAB",
+  "icons": { "16": "icons/icon-16.png", "32": "icons/icon-32.png", "48": "icons/icon-48.png", "128": "icons/icon-128.png" },
+  "action": {
+    "default_title": "Open TaskPilot",
+    "default_icon": { "16": "icons/icon-16.png", "32": "icons/icon-32.png", "48": "icons/icon-48.png" }
+  },
+  "background": { "service_worker": "background.js", "type": "module" },
+  "permissions": ["storage", "alarms", "notifications"],
+  "host_permissions": ["http://127.0.0.1/*", "http://localhost/*"],
+  "minimum_chrome_version": "116",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; connect-src 'self' http://127.0.0.1:* http://localhost:* ws://127.0.0.1:* ws://localhost:*; img-src 'self' blob: data:"
+  }
+}

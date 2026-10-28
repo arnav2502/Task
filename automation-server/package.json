@@ -1,0 +1,29 @@
+{
+  "name": "automation-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "start": "tsx src/main.ts",
+    "start:prod": "node dist/main.js",
+    "build": "tsc --noEmit && esbuild src/main.ts --bundle --platform=node --format=esm --target=node20 --packages=external --sourcemap --outfile=dist/main.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@napi-rs/keyring": "1.2.0",
+    "better-sqlite3": "12.4.1",
+    "dotenv": "17.2.3",
+    "express": "5.1.0",
+    "playwright": "1.64.0",
+    "ws": "8.18.3",
+    "zod": "4.1.12"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "7.6.13",
+    "@types/express": "5.0.3",
+    "@types/ws": "8.18.1",
+    "esbuild": "0.25.11"
+  }
+}
